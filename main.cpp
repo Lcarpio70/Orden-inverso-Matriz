@@ -1,4 +1,5 @@
-#include <iostream> 
+#include <iostream>
+#include <cstdio> 
 #include <windows.h>
 
 using namespace std;
@@ -10,7 +11,6 @@ void gotoxy(int x, int y) {
     COORD coord;
     coord.X = x;
     coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
 int main() {
@@ -19,35 +19,34 @@ int main() {
 
     system("cls");
 
-    // De menor a mayor)
+    // Original
     for (int i = 0; i < FILAS; i++) { 
         for (int j = 0; j < COLUMNAS; j++) {  
             matriz[i][j] = num++;
         }
     }
 
-    // normal
-    cout << "Matriz en orden de menor a mayor:" << endl;
+    // menor a mayor
+    printf("Matriz en orden de menor a mayor:\n");
     for (int i = 0; i < FILAS; i++) { 
         for (int j = 0; j < COLUMNAS; j++) {  
-            cout << matriz[i][j] << "  ";
+            printf("%d  ", matriz[i][j]); 
         }
-        cout << endl;
+        printf("\n");
     }
 
-    cout << endl; // Espacio entre matrices
+    printf("\n"); // Espacio entre matrices
 
-    // De mayor a menor
-    cout << "Matriz en orden de mayor a menor:" << endl;
+    // mayor a menor
+    printf("Matriz en orden de mayor a menor:\n");
     for (int i = FILAS - 1; i >= 0; i--) { 
         for (int j = COLUMNAS - 1; j >= 0; j--) {  
-            cout << matriz[i][j] << "  ";
+            printf("%d  ", matriz[i][j]);
         }
-        cout << endl;
+        printf("\n");
     }
 
     system("pause");
     return 0;
 }
-
 
